@@ -1,5 +1,5 @@
 <h1>Agregar Producto</h1>
-<hr>
+<hr />
 
 <form [formGroup]="miFormulario">
   <div class="row g-3 align-items-center mb-3">
@@ -7,10 +7,10 @@
       <label class="col-form-label">Nombre: </label>
     </div>
     <div class="col-auto">
-      <input class="form-control" type="text" formControlName="nombre">
+      <input class="form-control" type="text" formControlName="nombre" />
     </div>
     <div class="col-auto">
-      <span class="form-text" *ngIf="tieneError('nombre')">
+      <span class="form-text" error-msg *ngIf="tieneError('nombre')">
         Este campo es obligatorio
       </span>
     </div>
@@ -18,13 +18,11 @@
 
   <div class="row mt-4 float-end">
     <div class="col">
-      <button class="btn btn-primary">
-        Guardar
-      </button>
+      <button class="btn btn-primary">Guardar</button>
     </div>
   </div>
 </form>
 
 <h3 class="mt-5">Formulario</h3>
-<pre>Valido: {{miFormulario.valid}}</pre>
-<pre>Valido: {{miFormulario.value | json}}</pre>
+<pre>Valido: {{ miFormulario.valid }}</pre>
+<pre>Valido: {{ miFormulario.value | json }}</pre>
