@@ -4,7 +4,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
-  styles: [],
+  styles: [
+    `
+      .hidden {
+        display: none;
+      }
+    `,
+  ],
 })
 export class AgregarComponent implements OnInit {
   textouno: string = 'prueba de cambios';

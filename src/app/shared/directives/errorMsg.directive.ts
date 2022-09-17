@@ -11,8 +11,17 @@ export class ErrorMsgDirective implements OnInit {
   @Input() set color(valor: string) {
     this.htmlElement.nativeElement.style.color = valor;
   }
+
   @Input() set mensaje(mensaje: string) {
     this.htmlElement.nativeElement.innerText = mensaje;
+  }
+
+  @Input() set valido(valor: boolean) {
+    if (valor === true) {
+      this.htmlElement.nativeElement.classList.remove('hidden');
+    } else {
+      this.htmlElement.nativeElement.classList.add('hidden');
+    }
   }
 
   constructor(private elementRef: ElementRef<HTMLElement>) {
