@@ -4,6 +4,9 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
   selector: '[error-msg]',
 })
 export class ErrorMsgDirective implements OnInit {
+  private _color: string = 'red';
+  private _mensaje: string = 'Este campo es obligatorio';
+
   htmlElement: ElementRef<HTMLElement>;
   @Input() set color(valor: string) {
     this.htmlElement.nativeElement.style.color = valor;
@@ -16,14 +19,20 @@ export class ErrorMsgDirective implements OnInit {
     this.htmlElement = elementRef;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.setErrorClass();
+    this.setErrorMsg();
+    this.setErrorColor();
+  }
 
   setErrorColor() {
-    this.htmlElement.nativeElement.style.color = this.color;
+    this.htmlElement.nativeElement.style.color = this._color;
+  }
+  setErrorClass() {
     this.htmlElement.nativeElement.classList.add('form-text');
   }
 
   setErrorMsg() {
-    this.htmlElement.nativeElement.innerText = this.mensaje;
+    this.htmlElement.nativeElement.innerText = this._mensaje;
   }
 }
